@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="20170828_Yxh_MyCalculator:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/20170828_Yxh_MyCalculator_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="20170828_Yxh_MyCalculator/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="20170828_Yxh_MyCalculator" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="KotlinJavaRuntime" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
