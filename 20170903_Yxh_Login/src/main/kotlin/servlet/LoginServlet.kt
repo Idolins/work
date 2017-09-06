@@ -16,12 +16,15 @@ class LoginServlet : HttpServlet() {
     @Throws(ServletException::class, IOException::class)
     override fun doPost(request: HttpServletRequest, response: HttpServletResponse) {
         val user = User(request.getParameter("username"), request.getParameter("password"))
+        var session = request.session
         if (user.username == "admin" && user.password == "admin") {
             request.setAttribute("user", user)
+            session.setAttribute("user", user)
+            request.getRequestDispatcher("/succeed.jsp").forward(request, response)
         } else {
             request.setAttribute("user", "该用户不存在")
+            request.getRequestDispatcher("/fail.jsp").forward(request, response)
         }
-        request.getRequestDispatcher("/succeed.jsp").forward(request, response)
     }
 
     @Throws(ServletException::class, IOException::class)

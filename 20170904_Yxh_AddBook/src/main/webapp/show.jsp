@@ -12,8 +12,8 @@
     <title>展示书籍</title>
 </head>
 <body>
-
-<table>
+查看所有图书
+<table border="1">
     <tr>
         <td>书名</td>
         <td>作者</td>

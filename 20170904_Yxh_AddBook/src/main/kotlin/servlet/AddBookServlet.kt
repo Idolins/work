@@ -1,5 +1,6 @@
 package servlet
 
+import dao.BookDao
 import entity.Book
 import java.io.IOException
 import javax.servlet.annotation.WebServlet
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse
 @WebServlet(name = "AddBookServlet", value = "/add")
 class AddBookServlet : HttpServlet() {
 
-    private lateinit var list: ArrayList<Book>
+    private var bookDao = BookDao()
 
     @Throws(javax.servlet.ServletException::class, IOException::class)
     override fun doPost(request: HttpServletRequest, response: HttpServletResponse) {
@@ -21,9 +22,8 @@ class AddBookServlet : HttpServlet() {
                 request.getParameter("bookName"),
                 request.getParameter("bookAuthor"),
                 request.getParameter("bookPrice").toFloat())
-        list.add(book)
-        println(list)
-        request.setAttribute("list", list)
+        bookDao.addBook(book)
+        request.setAttribute("list", bookDao.showBooks())
         request.getRequestDispatcher("/show.jsp").forward(request, response)
     }
 
@@ -32,8 +32,4 @@ class AddBookServlet : HttpServlet() {
         doPost(request, response)
     }
 
-    override fun init() {
-        super.init()
-        list = ArrayList()
-    }
 }

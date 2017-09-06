@@ -11,6 +11,8 @@
     <title>登陆成功</title>
 </head>
 <body>
-${requestScope.user.username}
+欢迎用户登陆成功
+${user.username}
+
 </body>
 </html>
