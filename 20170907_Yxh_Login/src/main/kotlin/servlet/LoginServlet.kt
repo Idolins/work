@@ -12,21 +12,23 @@ import javax.servlet.http.HttpServletResponse
 /**
  * Created by young on 2017/9/7.
  */
-@WebServlet(name = "LoginServlet", value = "/login.do")
+@WebServlet(name = "LoginServlet", value = "/login")
 class LoginServlet : HttpServlet() {
 
     var userDao = UserDao()
 
     @Throws(ServletException::class, IOException::class)
     override fun doPost(request: HttpServletRequest, response: HttpServletResponse) {
-
+        val code = request.session.getAttribute("code")
+        println("code = $code")
         val user = User(request.getParameter("username"), request.getParameter("password"))
-        val flag = userDao.getUser(user)
+        val flag: Boolean = userDao.getUser(user)
+
         var path = "index.jsp"
         var text = "登陆失败"
 
         if (flag) {
-            path = "addBook.jsp"
+            path = "addbook.jsp"
             text = "登陆成功"
         }
         request.setAttribute("text", text)

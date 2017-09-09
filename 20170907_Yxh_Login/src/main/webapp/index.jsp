@@ -27,10 +27,11 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" id="theme-styles">
 
-    <!--[if lt IE 9]>
-    <!--<script src="js/vendor/google/html5-3.6-respond-1.1.0.min.js"></script>-->
-    <%--<![endif]-->--%>
-
+    <script>
+        function refresh() {
+            document.getElementById("code").src = "/sendCode";
+        }
+    </script>
 
 </head>
 <body>
@@ -43,7 +44,6 @@
                     <header>
                         <div class="lead-image">
                             <img src="img/single-post.jpg" alt="" class="img-responsive">
-
                         </div>
                     </header>
                 </article>
@@ -57,14 +57,20 @@
                     <div class="body">
                         <form action="login.do" method="post">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">账号</label>
-                                <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                                <label for="InputEmail1">账号</label>
+                                <input name="username" type="text" class="form-control" id="InputEmail1"
                                        placeholder="账号">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">密码</label>
-                                <input name="password" type="password" class="form-control" id="exampleInputPassword1"
+                                <label for="InputPassword">密码</label>
+                                <input name="password" type="password" class="form-control" id="InputPassword"
                                        placeholder="密码">
+                            </div>
+                            <div class="form-group">
+                                <label for="InputCode">验证码</label>
+                                <img src="${pageContext.request.contextPath}/sendCode">
+                                <input name="password" type="password" class="form-control" id="InputCode"
+                                       placeholder="验证码">
                             </div>
                             <button type="submit" class="btn btn-default">登陆</button>
                         </form>

@@ -7,4 +7,5 @@ import entity.User
  */
 object UserDB {
     var userList: MutableList<User> = ArrayList()
+
 }
