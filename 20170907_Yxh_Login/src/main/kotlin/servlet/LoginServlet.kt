@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse
 /**
  * Created by young on 2017/9/7.
  */
-@WebServlet(name = "LoginServlet", value = "/login")
+@WebServlet(name = "LoginServlet", value = "/login.do")
 class LoginServlet : HttpServlet() {
 
     var userDao = UserDao()
@@ -30,6 +30,7 @@ class LoginServlet : HttpServlet() {
         if (flag) {
             path = "addbook.jsp"
             text = "登陆成功"
+            request.session.setAttribute("user", user)
         }
         request.setAttribute("text", text)
         request.getRequestDispatcher(path).forward(request, response)
