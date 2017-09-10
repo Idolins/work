@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletRequest
  */
 @WebFilter(filterName = "DoLoginFilter", urlPatterns = arrayOf("/*"))
 class DoLoginFilter : Filter {
+    override fun init(filterConfig: FilterConfig?) {
+        urlList = ArrayList()
+        urlList.add("http://localhost:8080/index.jsp")
+        urlList.add("http://localhost:8080/sendCode")
+        urlList.add("http://localhost:8080/register.jsp")
+    }
 
     private lateinit var urlList: MutableList<String>
 
@@ -18,29 +24,20 @@ class DoLoginFilter : Filter {
     @Throws(ServletException::class, IOException::class)
     override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
         val url = (request as HttpServletRequest).requestURL
+        var flag = true
         for (u in urlList) {
             if (u == url.toString()) {
+                println(u)
                 chain.doFilter(request, response)
+                flag = false
                 break
             }
+            if (request.session.getAttribute("user") == null && flag) {
+                request.getRequestDispatcher("index.jsp").forward(request, response)
+            }
         }
-
-//        urlList
-//                .filter { it == url.toString() }
-//                .forEach { chain.doFilter(request, response)
-//                }
-        if (request.session.getAttribute("user") == null) {
-            request.getRequestDispatcher("index.jsp").forward(request, response)
-        }
-
     }
-
-    @Throws(ServletException::class)
-    override fun init(config: FilterConfig) {
-        urlList = ArrayList()
-        urlList.add("http://localhost:8080/index.jsp")
-        urlList.add("http://localhost:8080/sendCode")
-        urlList.add("http://localhost:8080/register.jsp")
-    }
-
 }
+
+
+
