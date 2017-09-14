@@ -12,9 +12,18 @@
     <title>登陆页面</title>
 </head>
 <body>
+${requestScope.error}
 <form action="login.action" method="post">
-    用户名：<input type="text" name="username">
-    密码：<input type="password" name="password">
+    用户名：<label>
+    <input type="text" name="username">
+</label><br>
+    密码：<label>
+    <input type="password" name="password">
+</label> <br>
+    验证码： <label>
+    <input type="text" name="checkCode">
+</label> <br>
+    <img src="checkCode.action" onclick="this.src='checkCode.action'"> <br>
     <input type="submit" value="登陆">
 </form>
 </body>

@@ -10,5 +10,11 @@
             <result name="success">welcome.jsp</result>
             <result name="error">index.jsp</result>
         </action>
+        <action name="checkCode" class="action.CheckCode">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
     </package>
 </struts>
