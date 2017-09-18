@@ -1,6 +1,7 @@
 package action
 
 import com.opensymphony.xwork2.Action
+import com.opensymphony.xwork2.ActionContext
 import com.opensymphony.xwork2.ActionSupport
 import org.apache.struts2.ServletActionContext
 import java.awt.Color
@@ -87,8 +88,6 @@ class CheckCode : ActionSupport() {
 
         g.drawString("" + rands[3], 46, 16)
 
-        println(rands)
-
     }
 
     @Throws(Exception::class)
@@ -126,10 +125,7 @@ class CheckCode : ActionSupport() {
 
         this.setInputStream(input)
 
-        val session = ServletActionContext.getRequest().session
-
-        session.setAttribute("checkCode", rands)
-
+        ActionContext.getContext().session.put("checkCode", rands)
         input.close()
 
         outputStream.close()

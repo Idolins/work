@@ -5,16 +5,28 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="user" namespace="/" extends="struts-default">
-        <action name="login" class="action.LoginAction">
-            <result name="success">welcome.jsp</result>
-            <result name="error">index.jsp</result>
-        </action>
+    <package name="default" namespace="/" extends="struts-default">
         <action name="checkCode" class="action.CheckCode">
             <result name="success" type="stream">
                 <param name="contentType">image/jpeg</param>
                 <param name="inputName">inputStream</param>
             </result>
+        </action>
+    </package>
+
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="login" class="action.UserLoginAction" method="login">
+            <result name="success" type="redirect">/welcome.jsp</result>
+            <result name="error" type="redirect">/index.jsp</result>
+            <result name="input" type="redirect">/index.jsp</result>
+        </action>
+
+    </package>
+    <package name="admin" extends="struts-default" namespace="/admin">
+        <action name="login" class="action.AdminLoginAction" method="login">
+            <result name="success" type="redirect">/welcome.jsp</result>
+            <result name="error" type="redirect">/index.jsp</result>
+            <result name="input" type="redirect">/index.jsp</result>
         </action>
     </package>
 </struts>

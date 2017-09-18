@@ -11,6 +11,6 @@
     <title>Welcome</title>
 </head>
 <body>
-欢迎用户${sessionScope.username}
+欢迎${sessionScope.type}:${sessionScope.username}
 </body>
 </html>
