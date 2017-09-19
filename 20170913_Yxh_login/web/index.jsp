@@ -16,7 +16,6 @@
             color: red;
         }
     </style>
-    <%--<link href="updateAction.js">--%>
     <script>
         function submitForm() {
             var form = document.getElementById("form");
@@ -24,9 +23,9 @@
             var index = userType.selectedIndex;
             var typeValue = userType.options[index].value;
             if (typeValue === "管理员") {
-                form.action = "admin/login.action"
+                form.action = "adminLogin.action"
             } else if (typeValue === "普通用户") {
-                form.action = "user/login.action"
+                form.action = "userLogin.action"
             } else {
                 alert("未知错误")
             }
@@ -51,7 +50,7 @@
         <tr>
             <td>验证码</td>
             <td><input type="text" name="checkCode"></td>
-            <img src="checkCode.action" onclick="this.src='checkCode.action'">
+            <td><img src="checkCode.action" onclick="this.src='checkCode.action'"></td>
             <td class="errorLabel"><s:fielderror><s:param>code</s:param> </s:fielderror></td>
         </tr>
         <tr>

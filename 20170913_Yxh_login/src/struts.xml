@@ -12,21 +12,17 @@
                 <param name="inputName">inputStream</param>
             </result>
         </action>
-    </package>
-
-    <package name="user" namespace="/user" extends="struts-default">
-        <action name="login" class="action.UserLoginAction" method="login">
-            <result name="success" type="redirect">/welcome.jsp</result>
-            <result name="error" type="redirect">/index.jsp</result>
-            <result name="input" type="redirect">/index.jsp</result>
+        <action name="userLogin" class="action.UserLoginAction" method="login">
+            <result name="success" type="redirect">welcome.jsp</result>
+            <result name="error" type="redirect">index.jsp</result>
+            <result name="input">index.jsp</result>
         </action>
-
-    </package>
-    <package name="admin" extends="struts-default" namespace="/admin">
-        <action name="login" class="action.AdminLoginAction" method="login">
-            <result name="success" type="redirect">/welcome.jsp</result>
-            <result name="error" type="redirect">/index.jsp</result>
-            <result name="input" type="redirect">/index.jsp</result>
+        <action name="adminLogin" class="action.AdminLoginAction" method="login">
+            <result name="success" type="redirect">welcome.jsp</result>
+            <result name="error" type="redirect">index.jsp</result>
+            <result name="input">index.jsp</result>
         </action>
     </package>
+
+
 </struts>
