@@ -6,7 +6,7 @@
 
 <struts>
     <package name="default" namespace="/" extends="struts-default">
-        <action name="checkCode" class="action.VerificationCode">
+        <action name="verificationCode" class="action.VerificationCode">
             <result name="success" type="stream">
                 <param name="contentType">image/jpeg</param>
                 <param name="inputName">inputStream</param>
@@ -23,6 +23,4 @@
             <result name="input">index.jsp</result>
         </action>
     </package>
-
-
 </struts>

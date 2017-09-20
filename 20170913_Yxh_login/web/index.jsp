@@ -49,11 +49,14 @@
 
             <td class="errorLabel"><s:fielderror><s:param>password</s:param></s:fielderror></td>
         </tr>
+
         <tr>
             <td>验证码</td>
             <td><input type="text" name="checkCode"></td>
-            <td><img src="checkCode.action" onclick="this.src='checkCode.action'"></td>
+            <td><img src="verificationCode.action" id="imgCode">
+                <input type="button" onclick="location.reload()" value="刷新"></td>
             <td class="errorLabel"><s:fielderror><s:param>code</s:param> </s:fielderror></td>
+
         </tr>
         <tr>
             <td>用户类型</td>

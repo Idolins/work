@@ -3,34 +3,36 @@ package action
 import com.opensymphony.xwork2.Action
 import com.opensymphony.xwork2.ActionContext
 import com.opensymphony.xwork2.ActionSupport
+import com.opensymphony.xwork2.ModelDriven
+import entity.User
 
 /**
  * Created by young on 2017/9/18.
  */
-class AdminLoginAction : ActionSupport() {
+class AdminLoginAction : ActionSupport(), ModelDriven<User> {
 
 
-    lateinit var username: String
-    lateinit var password: String
+    private var user: User = User()
     lateinit var checkCode: String
+
+    override fun getModel(): User = user
 
     override fun validate() {
         val code = ActionContext.getContext().session["checkCode"] as String
-        if (username.trim().isEmpty()) {
+        if (user.username.trim().isEmpty()) {
             addFieldError("username", "用户名不能为空")
         }
-        if (password.trim().isEmpty())
+        if (user.password.trim().isEmpty())
             addFieldError("password", "密码不能为空")
         if (!checkCode.trim().equals(code, true)) {
             addFieldError("code", "验证码错误")
         }
     }
 
-
     @Throws(Exception::class)
     fun login(): String {
-        return if (username == "yxh" && password == "456") {
-            ActionContext.getContext().session.put("username", username)
+        return if (user.username == "yxh" && user.password == "456") {
+            ActionContext.getContext().session.put("username", user.username)
             ActionContext.getContext().session.put("type", "管理员")
             Action.SUCCESS
         } else {
