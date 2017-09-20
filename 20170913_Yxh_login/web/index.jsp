@@ -58,10 +58,10 @@
         <tr>
             <td>用户类型</td>
             <td>
-                <select name="type" id="userType">
-                    <option value="管理员">管理员</option>
-                    <option value="普通用户">普通用户</option>
-                </select>
+                <label for="userType"></label><select name="type" id="userType">
+                <option value="管理员">管理员</option>
+                <option value="普通用户">普通用户</option>
+            </select>
 
             </td>
         </tr>

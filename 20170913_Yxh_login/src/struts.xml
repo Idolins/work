@@ -6,7 +6,7 @@
 
 <struts>
     <package name="default" namespace="/" extends="struts-default">
-        <action name="checkCode" class="action.CheckCode">
+        <action name="checkCode" class="action.VerificationCode">
             <result name="success" type="stream">
                 <param name="contentType">image/jpeg</param>
                 <param name="inputName">inputStream</param>

@@ -25,7 +25,6 @@ class UserLoginAction : ActionSupport() {
         }
     }
 
-
     @Throws(Exception::class)
     fun login(): String {
         return if (username == "yxh" && password == "123") {
