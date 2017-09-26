@@ -1,4 +1,3 @@
-<%@ page import="com.opensymphony.xwork2.util.ValueStack" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
@@ -15,13 +14,28 @@
 <body>
 欢迎<s:property value="user.username"/> <br>
 
- <a href="addBook.jsp">添加书籍</a>
- <a href="updateBook.jsp">修改书籍</a>
- <a href="bookselect!select">展示书籍</a>
- <a href="deleteBook.jsp">删除书籍</a>
+<a href="addBook.jsp">添加书籍</a>
+<a href="updateBook.jsp">修改书籍</a>
+<a href="bookselect!select">展示书籍</a>
+<a href="deleteBook.jsp">删除书籍</a>
 
-<s:iterator value="bookList" var="book">
-    <s:property value="book"/>
-</s:iterator>
+<table border="1">
+    <tr>
+        <td>书名</td>
+        <td>作者</td>
+        <td>价格</td>
+    </tr>
+    <s:iterator value="bookList" var="book">
+        <tr>
+            <td><s:property value="#book.name"/></td>
+            <td><s:property value="#book.author"/></td>
+            <td><s:property value="#book.price"/></td>
+        </tr>
+    </s:iterator>
+
+
+</table>
+
+
 </body>
 </html>

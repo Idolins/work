@@ -15,10 +15,9 @@
         </action>
 
         <action name="book*" class="action.BookAction" method="{1}">
-            <result name="success">index.jsp</result>
+            <result name="success" >index.jsp</result>
             <result name="input">index.jsp</result>
             <result name="error">index.jsp</result>
-
         </action>
     </package>
 </struts>

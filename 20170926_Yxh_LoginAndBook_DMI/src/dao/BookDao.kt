@@ -35,7 +35,7 @@ class BookDao {
     }
 
     fun selectBook(): List<Book> {
-        println(bookDB.toString())
+
         return bookDB
     }
 
