@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <package name="user" extends="struts-default" namespace="/">
+        <action name="user*" class="action.UserAction" method="{1}">
+            <result name="login">index.jsp</result>
+            <result name="error">login.jsp</result>
+            <result name="success">login.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+
+        <action name="book*" class="action.BookAction" method="{1}">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+            <result name="error">index.jsp</result>
+
+        </action>
+    </package>
+</struts>
