@@ -16,7 +16,7 @@ class BookDao {
         for (books in bookDB) {
             if (books.name == book.name
                     ) {
-                bookDB.remove(book)
+                bookDB.remove(books)
                 return true
             }
         }

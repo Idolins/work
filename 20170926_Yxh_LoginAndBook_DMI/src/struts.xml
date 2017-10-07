@@ -10,14 +10,14 @@
         <action name="user*" class="action.UserAction" method="{1}">
             <result name="login">index.jsp</result>
             <result name="error">login.jsp</result>
-            <result name="success">login.jsp</result>
             <result name="input">login.jsp</result>
         </action>
 
         <action name="book*" class="action.BookAction" method="{1}">
-            <result name="success" >index.jsp</result>
+            <result name="success" type="chain">bookselect</result>
             <result name="input">index.jsp</result>
             <result name="error">index.jsp</result>
+            <result name="select">showBook.jsp</result>
         </action>
     </package>
 </struts>

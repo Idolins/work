@@ -14,27 +14,17 @@
 <body>
 欢迎<s:property value="user.username"/> <br>
 
-<a href="addBook.jsp">添加书籍</a>
-<a href="updateBook.jsp">修改书籍</a>
-<a href="bookselect!select">展示书籍</a>
-<a href="deleteBook.jsp">删除书籍</a>
+<a href="addBook.jsp" target="show">添加书籍</a>
+<a href="updateBook.jsp" target="show">修改书籍</a>
+<a href="bookselect!select" target="show">展示书籍</a>
+<a href="deleteBook.jsp" target="show">删除书籍</a>
 
-<table border="1">
-    <tr>
-        <td>书名</td>
-        <td>作者</td>
-        <td>价格</td>
-    </tr>
-    <s:iterator value="bookList" var="book">
-        <tr>
-            <td><s:property value="#book.name"/></td>
-            <td><s:property value="#book.author"/></td>
-            <td><s:property value="#book.price"/></td>
-        </tr>
-    </s:iterator>
+<br>
+
+<iframe src="showBook.jsp" frameborder="0" name="show" width="600px">
 
 
-</table>
+</iframe>
 
 
 </body>
