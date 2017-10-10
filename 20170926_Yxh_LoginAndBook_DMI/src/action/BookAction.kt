@@ -16,26 +16,22 @@ class BookAction : ActionSupport(), ModelDriven<Book> {
     override fun getModel(): Book = book
 
     fun add(): String {
-        println("BookAction.add")
         bookDao.addBook(book)
         return Action.SUCCESS
     }
 
     fun delete(): String {
-        println("BookAction.delete")
         val flag: Boolean = bookDao.deleteBook(book)
         return if (flag) Action.SUCCESS else Action.ERROR
 
     }
 
     fun update(): String {
-        println("BookAction.update")
         val flag = bookDao.updateBook(book)
         return if (flag) Action.SUCCESS else Action.ERROR
     }
 
     fun select(): String {
-        println("BookAction.select")
         val list = bookDao.selectBook()
         ActionContext.getContext().valueStack.set("bookList", list)
         return "select"
