@@ -5,6 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+
     <package name="user" namespace="/" extends="struts-default">
         <action name="verificationCode" class="action.VerificationCode">
             <result name="success" type="stream">
@@ -16,6 +17,13 @@
             <result name="input">index.jsp</result>
             <result name="success">index.jsp</result>
         </action>
-
+        <action name="register2" method="register" class="action.Register2Action">
+            <result name="input">index2.jsp</result>
+            <result name="success">index2.jsp</result>
+        </action>
+        <action name="register3" method="register" class="action.Register3Action">
+            <result name="input">index3.jsp</result>
+            <result name="success">index3.jsp</result>
+        </action>
     </package>
 </struts>
