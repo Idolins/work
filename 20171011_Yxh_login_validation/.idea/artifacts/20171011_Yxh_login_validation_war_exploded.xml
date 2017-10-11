@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="20171011_Yxh_login_validation:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/20171011_Yxh_login_validation_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="20171011_Yxh_login_validation/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="20171011_Yxh_login_validation" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="Struts 2-2.3.20.1" />
+          <element id="library" level="project" name="KotlinJavaRuntime" />
+          <element id="library" level="project" name="struts2-dojo-plugin-2.3.34" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
