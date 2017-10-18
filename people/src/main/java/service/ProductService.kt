@@ -10,6 +10,5 @@ import org.springframework.stereotype.Service
 @Service
 class ProductService {
 
-    @Autowired
     private var productDao = ProductDao()
 }
