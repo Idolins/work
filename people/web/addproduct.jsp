@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<s:form action="" method="POST" namespace="/" theme="simple">
+<s:form action="product_save" method="POST" theme="simple">
     <table>
 
         <tr>
@@ -24,7 +24,7 @@
             <td><s:textfield name="price"/></td>
         </tr>
         <tr>
-            <td colspan="2"><s:submit value="添加"/> </td>
+            <td colspan="2"><s:submit value="添加"/></td>
         </tr>
     </table>
 </s:form>

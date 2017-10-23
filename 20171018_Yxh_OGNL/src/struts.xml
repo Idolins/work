@@ -5,10 +5,9 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="ssh" extends="struts-default" namespace="/">
-        <!--由spring创建管理-->
-        <action name="product_*" class="productAction" method="{1}">
-
+    <package name="book" extends="struts-default" namespace="/">
+        <action name="bookaction" class="action.BookAction" method="addBook">
+            <result name="success">index.jsp</result>
         </action>
     </package>
 </struts>
