@@ -5,6 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+
     <package name="file" extends="struts-default" namespace="/">
         <action name="upload" class="action.UploadAction" method="execute">
             <result name="success">success.jsp</result>
