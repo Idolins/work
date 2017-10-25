@@ -22,21 +22,25 @@
                 var time = new Date();
                 // 程序计时的月从0开始取值后+1
                 var m = time.getMonth() + 1;
-                var t = time.getFullYear() + "-" + m + "-"
+                show.innerHTML = time.getFullYear() + "-" + m + "-"
                     + time.getDate() + " " + time.getHours() + ":"
-                    + time.getMinutes() + ":" + time.getSeconds();
-                show.innerHTML = t;
+                    + time.getMinutes();
             }, 1000);
         };
     </script>
 
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script type="text/javascript"
+            src="http://webapi.amap.com/maps?v=1.4.0&key=58106c1c54be5f020791bfa63fc05b3e&plugin=AMap.CitySearch"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript" src="common/lbs.js"></script>
 
 </head>
 <body>
 <%--导航栏--%>
 <jsp:include page="common/nav.jsp"/>
 
-
+<%--巨幕--%>
 <div class="container">
     <div class="jumbotron">
         <div>
@@ -46,12 +50,12 @@
             </h1>
             <h3 id="show">21:48</h3>
             <p>你已经加入实验室 xxx 天 xxx 小时</p>
-            <p><a class="btn btn-primary btn-lg" role="button">
-                签到</a>
+            <p>
+            <form  onclick="submitLocal()" id="form">
+                <input type="submit" value="签到" class="btn btn-primary btn-lg">
+            </form>
             </p>
         </div>
-
-
     </div>
 </div>
 
