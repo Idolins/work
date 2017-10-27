@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: young
@@ -18,62 +19,140 @@
 <body>
 <jsp:include page="common/nav.jsp"/>
 
+<s:fielderror/>
 
 <div class="container">
     <div class="jumbotron">
         <div>
             <h3>注册信息</h3>
-            <form>
+            <form action="userRegister.action" method="post" class="form-group">
                 <table class="table ">
 
                     <tr class="form-group">
-                        <td><label for="nickname">昵称</label></td>
-                        <td><input id="nickname" class="form-group" type="text" placeholder="长度为3~8字符"></td>
-                    </tr>
-
-                    <tr class="form-group">
-                        <td><label for="sex">性别</label></td>
-                        <td><select id="sex" class="form-group">
-                            <option value="男">男</option>
-                            <option value="女">女</option>
-                        </select>
+                        <td>
+                            <small>账号信息</small>
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <td><label for="firstName">姓</label></td>
-                        <td><input id="firstName" class="form-group" type="text" placeholder="1-2个字符"></td>
-                        <td><label for="lastName">名</label></td>
-                        <td><input id="lastName" class="form-group" type="text" placeholder="1-5个字符"></td>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="nicknameSpan">昵称</span>
+                                <input id="nickname" class="form-control" type="text" placeholder="长度为3~8字符"
+                                       aria-describedby="nicknameSpan" name="nickName">
+                            </div>
+                        </td>
                     </tr>
                     <tr class="form-group">
-                        <td><label for="age">年龄</label></td>
-                        <td><input class="form-group" type="number" min="15" max="70" id="age"></td>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="passwordSpan">密码</span>
+                                <input id="password" class="form-control" type="password" placeholder="长度为3~8字符"
+                                       aria-describedby="passwordSpan" name="password">
+                            </div>
+                        </td>
                     </tr>
                     <tr class="form-group">
-                        <td><label for="birthday">生日</label> </td>
-                        <td><div class="input-append date form_datetime">
-                            <input size="16" type="text" value="" readonly>
-                            <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-
-                            <script type="text/javascript">
-                                $(".form_datetime").datetimepicker({
-                                    format: "dd MM yyyy - hh:ii"
-                                });
-                            </script>   </td>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="rePasswordSpan">再次输入</span>
+                                <input id="rePassword" class="form-control" type="password" placeholder="长度为3~8字符"
+                                       aria-describedby="rePasswordSpan" name="rePassword">
+                            </div>
+                        </td>
                     </tr>
-                    <tr class="form-group"></tr>
 
+                    <tr class="form-group">
+                        <td>
+                            <small>基本信息</small>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="usernameSpan">真实姓名</span>
+                                <input id="userName" class="form-control" type="text" placeholder="2-5个字符"
+                                       aria-describedby="usernameSpan" name="username">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sexSpan">性别</span>
+                                <select id="sex" class="form-control" aria-describedby="sexSpan" name="sex">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
 
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="ageSpan">年龄</span>
+                                <input class="form-control" type="number" id="age" aria-describedby="ageSpan"
+                                       name="age">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="birthdaySpan">生日</span>
+                                <input size="16" type="date" value="1999/12/30" id="birthday"
+                                       aria-describedby="birthdaySpan" class="form-control" name="birthday">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="form-group">
+                        <td>
+                            <small>地址信息</small>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="provinceSpan">省份</span>
+                                <input class="form-control" name="province" type="text" aria-describedby="provinceSpan">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="citySpan">城市</span>
+                                <input class="form-control" name="city" type="text" aria-describedby="citySpan">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="areaSpan">地区</span>
+                                <input class="form-control" name="area" type="text" aria-describedby="areaSpan">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <label>
+                                    <input type="checkbox"> <a href="">同意软件服务条款</a>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-default">提交</button>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
-
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Check me out
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </div>

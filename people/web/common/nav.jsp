@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -31,16 +32,27 @@
                 <li><a href="#">Link</a></li>
             </ul>
             <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
             </form>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.jsp">登陆</a></li>
-                <li><a href="register.jsp">注册</a></li>
-            </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login.jsp">登陆</a></li>
+                    <li><a href="register.jsp">注册</a></li>
+                </ul>
+            <%--</c:if>--%>
+            <%--<c:else>--%>
+                <%--<ul class="nav navbar-nav navbar-right">--%>
+                    <%--<li><a href="user.jsp">${sessionScope.user.username}</a></li>--%>
+                <%--</ul>--%>
+            <%--</c:else>--%>
+
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
