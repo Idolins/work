@@ -3,11 +3,11 @@
 
 # 所用技术
 
-1. 前端采用 Bootstrap
+- 前端采用 Bootstrap
 
-2. 后台使用Struts2
+- 后台使用Struts2
 
-3. 语言kotlin
+- 语言kotlin
 
 # 功能
 - [x] 登陆
