@@ -27,9 +27,9 @@
                 <tr class="form-group">
                     <td>
                         <div class="input-group">
-                            <span class="input-group-addon" id="nicknameSpan">昵称</span>
-                            <input id="nickname" class="form-control" type="text" placeholder="长度为3~8字符"
-                                   aria-describedby="nicknameSpan" name="nickName">
+                            <span class="input-group-addon" id="emailSpan">E-Mail</span>
+                            <input id="email" class="form-control" type="email"
+                                   aria-describedby="emailSpan" name="email">
                         </div>
                     </td>
                 </tr>

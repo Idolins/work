@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="Maven: error:spr:unknown">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/error/spr/unknown/spr-unknown.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/error/spr/unknown/spr-unknown-javadoc.jar!/" />
     </JAVADOC>

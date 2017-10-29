@@ -7,6 +7,7 @@ import domain.User
 import service.UserService
 import service.serviceImp.UserServiceImp
 
+
 /**
  * Created by young on 2017/10/24.
  */
@@ -17,24 +18,34 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     lateinit var userService: UserService
 
     override fun getModel(): User = user
-
-    fun registerValidate() {
-        if (user.username.length in 5..9) {
-
-        } else {
-
-        }
-    }
+//
+//    fun registerValidate() {
+//        if (user.username.length in 5..9) {
+//
+//        } else {
+//
+//        }
+//    }
 
 
     fun login(): String {
-        return Action.SUCCESS
+        userService = UserServiceImp()
+        val bool = userService.login(user)
+        return if (bool) {
+            Action.SUCCESS
+        } else {
+            Action.ERROR
+        }
+
     }
 
     fun register(): String {
         userService = UserServiceImp()
-        println("$user")
-        userService.register(user)
-        return Action.LOGIN
+        val flag = userService.register(user)
+        return if (flag == 1) {
+            Action.LOGIN
+        } else {
+            Action.ERROR
+        }
     }
 }
