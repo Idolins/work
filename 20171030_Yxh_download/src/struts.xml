@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="download" extends="struts-default" namespace="/">
+        <action name="download" class="action.UploadFile" method="execute">
+            <result type="stream">
+                <param name="inputName">targetFile</param>
+                <param name="contentType">${contentType}</param>
+                <param name="contentDisposition">attachment;filename=${downFileName}</param>
+            </result>
+        </action>
+    </package>
+</struts>
