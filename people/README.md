@@ -5,13 +5,14 @@
 
 - 前端采用 Bootstrap
 
-- 后台使用Struts2
+- 后台使用 Struts2
 
 - 持久层使用 Hibernate
 
 - 语言kotlin
 
 # 功能
+
 - [ ] 登陆
 - [ ] 注册
 - [ ] 地理位置签到
@@ -27,7 +28,7 @@
 
 ![注册](http://7xt81u.com1.z0.glb.clouddn.com/register.png)
 
-# Lisence
+# License
 
 [GPL-3.0](https://github.com/youngxhui/work/blob/master/LICENSE)
 

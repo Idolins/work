@@ -1,7 +1,10 @@
 package domain
 
+import org.hibernate.annotations.GenericGenerator
+import java.io.Serializable
 import java.util.*
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
 
@@ -10,14 +13,18 @@ import javax.persistence.Table
  */
 @Entity
 @Table(name = "user")
-class User {
+class User : Serializable {
 
     @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     var uid: Int = 0
 
     lateinit var username: String
     lateinit var nickName: String
     lateinit var password: String
+
+    @Transient
     lateinit var rePassword: String
     var age: Int = 18
     lateinit var sex: String
