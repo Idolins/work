@@ -1,11 +1,20 @@
 package domain
 
 import java.util.*
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
 /**
  * Created by young on 2017/10/24.
  */
+@Entity
+@Table(name = "user")
 class User {
+
+    @Id
+    var uid: Int = 0
+
     lateinit var username: String
     lateinit var nickName: String
     lateinit var password: String
@@ -17,7 +26,6 @@ class User {
     lateinit var city: String
     lateinit var area: String
     lateinit var email: String
-
 
 
 }

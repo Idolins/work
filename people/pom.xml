@@ -14,9 +14,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.1.51</kotlin.version>
         <struts.version>2.3.14</struts.version>
-        <hibernate.version>3.6.10.Final</hibernate.version>
+        <hibernate.version>4.2.4.Final</hibernate.version>
         <spring.version>3.0.5.RELEASE</spring.version>
     </properties>
+
+
 
     <dependencies>
         <!-- struts2依赖包 -->
@@ -25,12 +27,13 @@
             <artifactId>struts2-core</artifactId>
             <version>2.3.14</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts2-convention-plugin</artifactId>
-            <version>${struts.version}</version>
-        </dependency>
 
+        <!--hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
         <!--连接池-->
         <dependency>
@@ -62,7 +65,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
-            <scope>test</scope>
+
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -74,7 +77,11 @@
             <artifactId>kotlin-test</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency><dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+    </dependency>
     </dependencies>
 
     <build>

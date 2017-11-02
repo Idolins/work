@@ -2,9 +2,11 @@ package dao.daoImp
 
 import dao.UserDao
 import domain.User
+import org.hibernate.Transaction
 import org.intellij.lang.annotations.Language
 import util.DateUtil
 import util.JDBCUtil
+import util.HBNSessionFactory
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
@@ -13,10 +15,16 @@ import java.sql.ResultSet
  */
 class UserDaoImp : UserDao {
 
+    lateinit var tx:Transaction
     var connection = JDBCUtil.getConnection()
     lateinit var ps: PreparedStatement
 
     override fun insert(user: User): Int {
+
+        var session= HBNSessionFactory.getSessionFactory()
+
+
+
         @Language("MySQL")
         val sql = "INSERT INTO user (nickname, password, username, age, sex, province, city, area, birthday,email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)"
         ps = connection.prepareStatement(sql)

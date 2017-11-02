@@ -48,7 +48,7 @@
             <h1>xxx,晚上好
 
             </h1>
-            <h3 id="show">21:48</h3>
+            <div id="show"></div>
             <p>你已经加入实验室 xxx 天 xxx 小时</p>
             <p>
             <form  onclick="submitLocal()" id="form">
