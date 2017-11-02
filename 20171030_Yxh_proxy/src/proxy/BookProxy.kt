@@ -22,4 +22,15 @@ class BookProxy : BookSubject {
         println("proxy get book after sale")
     }
 
+    fun invoke() {
+        val methods = bookR.javaClass.methods
+        for (method in methods) {
+            if ("saleBook" == method.name) {
+                saleBook()
+            } else {
+                bookR.saleBook()
+            }
+        }
+    }
+
 }

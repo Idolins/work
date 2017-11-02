@@ -7,8 +7,7 @@ import proxy.BookProxy
  */
 fun main(args: Array<String>) {
     val proxy = BookProxy()
-    proxy.saleBook()
- val c = BookProxy::class
-    println(c)
+
+    proxy.invoke()
 
 }
