@@ -28,12 +28,14 @@ class UserDaoImpTest {
 
     @Test
     fun insert() {
-        user.nickName = "李二傻子"
+        user.nickname = "李二傻子"
+        user.email="young@123.com"
         userDao.insert(user)
     }
 
     @Test
     fun select() {
+        user.email="young@123.com"
         userDao.select(user)
 
     }

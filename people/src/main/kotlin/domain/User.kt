@@ -21,7 +21,7 @@ class User : Serializable {
     var uid: Int = 0
 
     lateinit var username: String
-    lateinit var nickName: String
+    lateinit var nickname: String
     lateinit var password: String
 
     @Transient

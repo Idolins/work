@@ -18,9 +18,18 @@ class UserServiceImp : UserService {
         return userDao.insert(user)
     }
 
-    override fun login(user: User): Boolean {
+    override fun login(user: User): List<User>? {
         userDao = UserDaoImp()
-        val passwordOfSql = userDao.select(user)
-        return user.password == passwordOfSql
+        val userList = userDao.select(user)
+        var passwordOfSql = ""
+
+        for (users in userList) {
+            passwordOfSql = users.password
+        }
+
+        if (user.password == passwordOfSql) {
+            return userList
+        }
+        return null
     }
 }

@@ -5,13 +5,14 @@
 <struts>
     <package name="default" namespace="/" extends="struts-default">
         <action name="userRegister" method="register" class="action.UserAction">
-            <result name="login">login.jsp</result>
+            <result name="login">input.jsp</result>
             <result name="input">register.jsp</result>
             <result name="error">register.jsp</result>
         </action>
         <action name="userLogin" method="login" class="action.UserAction">
-            <result name="login">login.jsp</result>
-            <result name="input">register.jsp</result>
+            <result name="success">index.jsp</result>
+            <result name="input">login.jsp</result>
+            <result name="error">login.jsp</result>
         </action>
     </package>
 </struts>

@@ -18,29 +18,29 @@ class UserDaoImp : UserDao {
 
 
     override fun insert(user: User): Int {
-        println("user is ${user.nickName}")
+
         val configuration = Configuration().configure()
         val sessionFactory = configuration.buildSessionFactory()
         val session = sessionFactory.openSession()
         val transaction = session.beginTransaction()
-        val a=session.save(user)
-        println("a is $a")
+        val flag = session.save(user)
         transaction.commit()
         session.close()
-        return 0
+        return flag as Int
     }
 
-    override fun select(user: User): String {
+    override fun select(user: User): MutableList<User> {
         val configuration = Configuration().configure()
         val sessionFactory = configuration.buildSessionFactory()
         val session = sessionFactory.openSession()
         val transaction = session.beginTransaction()
-        val userSql = session.get(User::class.java, 1) as User
-        println("usersql is ${userSql.nickName}")
-
+        val hql = "from User where email =?"
+        val query = session.createQuery(hql)
+        query.setString(0, user.email)
+        val userList: MutableList<User> = query.list() as MutableList<User>
         transaction.commit()
         session.close()
-        return "123"
+        return userList
     }
 
 }

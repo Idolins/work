@@ -7,5 +7,5 @@ import domain.User
  */
 interface UserDao {
     fun insert(user: User): Int
-    fun select(user: User): String
+    fun select(user: User): MutableList<User>
 }

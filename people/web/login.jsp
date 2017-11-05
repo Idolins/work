@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: young
@@ -41,13 +42,22 @@
                                    aria-describedby="passwordSpan" name="password">
                         </div>
                     </td>
+
                 </tr>
-                <tr>
+                <tr class="form-group">
+                    <td class="text-center">
+                        <div>
+                            ${requestScope.loginError}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="form-group">
                     <td >
                         <div>
                             <button type="submit" class="btn btn-success btn-block">登陆</button>
                         </div>
                     </td>
+
                 </tr>
             </table>
         </form>

@@ -7,5 +7,5 @@ import domain.User
  */
 interface UserService {
     fun register(user: User): Int
-    fun login(user: User):Boolean
+    fun login(user: User): List<User>?
 }

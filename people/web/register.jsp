@@ -38,7 +38,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="nicknameSpan">昵称</span>
                                 <input id="nickname" class="form-control" type="text" placeholder="长度为3~8字符"
-                                       aria-describedby="nicknameSpan" name="nickName">
+                                       aria-describedby="nicknameSpan" name="nickname">
                             </div>
                         </td>
                     </tr>

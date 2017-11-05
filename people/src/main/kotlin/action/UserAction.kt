@@ -1,6 +1,7 @@
 package action
 
 import com.opensymphony.xwork2.Action
+import com.opensymphony.xwork2.ActionContext
 import com.opensymphony.xwork2.ActionSupport
 import com.opensymphony.xwork2.ModelDriven
 import domain.User
@@ -31,20 +32,26 @@ class UserAction : ActionSupport(), ModelDriven<User> {
     fun login(): String {
         userService = UserServiceImp()
         val bool = userService.login(user)
-        return if (bool) {
-            Action.SUCCESS
+        var result = Action.ERROR
+        val user = bool?.get(0)
+        println("user is ${user?.nickname}")
+        if (user != null) {
+            ActionContext.getContext().session.put("user", user)
+            result = Action.SUCCESS
         } else {
-            Action.ERROR
+            ActionContext.getContext().put("loginError", "邮箱或密码错误")
         }
-
+        return result
     }
 
     fun register(): String {
         userService = UserServiceImp()
         val flag = userService.register(user)
         return if (flag == 1) {
+            ActionContext.getContext().session.clear()
             Action.LOGIN
         } else {
+            ActionContext.getContext().session.clear()
             Action.ERROR
         }
     }

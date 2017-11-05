@@ -1,4 +1,5 @@
-<%@ taglib prefix="c" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -22,40 +23,61 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.jsp">Brand</a>
+            <a class="navbar-brand" href="index.jsp">People</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">主页<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
             </ul>
             <form class="navbar-form navbar-left">
 
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search for...">
+                    <input type="search" class="form-control" placeholder="查询 人名，电话，地址 ……">
                     <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" type="button">搜索</button>
       </span>
                 </div>
             </form>
 
+            <%--开始计时 2017年11月5日 11点05分 11点29分 我好像知道了错误--%>
 
+            <c:set var="user" value="${sessionScope.user}"/>
+
+
+            <c:if test="${user==null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.jsp">登陆</a></li>
                     <li><a href="register.jsp">注册</a></li>
                 </ul>
-            <%--</c:if>--%>
-            <%--<c:else>--%>
-                <%--<ul class="nav navbar-nav navbar-right">--%>
-                    <%--<li><a href="user.jsp">${sessionScope.user.username}</a></li>--%>
-                <%--</ul>--%>
-            <%--</c:else>--%>
+            </c:if>
+
+            <c:if test="${user!=null}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="userInfo.jsp"> ${user.nickname}</a></li>
+                    <li class="center-block ">
+                        <img class="img-circle" src="pic/testpic.jpeg" width="50px" height="50px">
+                    </li>
+                </ul>
+            </c:if>
+            <%--<s:property value="user.nickname"/>--%>
+            <%--<s:set var="session" value="${sessionScope.user}"/>--%>
+            <%--<s:property value="#session"/>--%>
+
+            <%--<s:if test="user.email==null">--%>
+            <%----%>
+            <%--</s:if>--%>
+            <%--<s:else>--%>
+            <%----%>
+            <%--</s:else>--%>
 
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+
 </body>
 </html>
