@@ -56,7 +56,7 @@
                         greet = "下午好，努力工作✨"
                     }
                     if (17 <= hours && hours < 20) {
-                        greet = "吃晚餐了吗？"
+                        greet = "吃晚餐了吗？🍔"
                     }
                     if (20 <= hours && hours <= 24) {
                         greet = "美好的夜生活"

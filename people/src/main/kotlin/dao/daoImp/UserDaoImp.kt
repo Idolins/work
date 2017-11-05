@@ -12,11 +12,6 @@ import java.sql.PreparedStatement
  */
 class UserDaoImp : UserDao {
 
-    lateinit var tx: Transaction
-    var connection = JDBCUtil.getConnection()
-    lateinit var ps: PreparedStatement
-
-
     override fun insert(user: User): Int {
 
         val configuration = Configuration().configure()

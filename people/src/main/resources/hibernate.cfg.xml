@@ -17,7 +17,7 @@
 
         <!--注解开发-->
         <mapping class="domain.User"/>
-
+        <mapping class="domain.Files"/>
 
     </session-factory>
 </hibernate-configuration>

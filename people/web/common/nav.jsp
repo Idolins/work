@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">主页<span class="sr-only">(current)</span></a></li>
-                <li><a href="document.jsp">资料</a></li>
+                <li><a href="getfiles">资料</a></li>
             </ul>
             <form class="navbar-form navbar-left">
 
@@ -42,18 +42,18 @@
                 </div>
             </form>
 
-            <c:set var="user" value="${sessionScope.user}"/>
+            <c:set var="nickname" value="${sessionScope.user.nickname}"/>
 
-            <c:if test="${user==null}">
+            <c:if test="${nickname==null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.jsp">登陆</a></li>
                     <li><a href="register.jsp">注册</a></li>
                 </ul>
             </c:if>
 
-            <c:if test="${user!=null}">
+            <c:if test="${nickname!=null}">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userInfo.jsp"> ${user.nickname}</a></li>
+                    <li><a href="userInfo.jsp"> ${nickname}</a></li>
                     <li class="center-block ">
                         <img class="img-circle" src="pic/testpic.jpeg" width="50px" height="50px">
                     </li>
