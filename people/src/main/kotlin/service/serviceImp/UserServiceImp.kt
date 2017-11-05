@@ -4,6 +4,7 @@ import dao.UserDao
 import dao.daoImp.UserDaoImp
 import domain.User
 import service.UserService
+import util.DateUtil
 
 /**
  * Created by young on 2017/10/27.
@@ -28,6 +29,9 @@ class UserServiceImp : UserService {
         }
 
         if (user.password == passwordOfSql) {
+            val birthday = userList[0].birthday
+            val sqlDate = DateUtil.formUtilDateToSqlDate(birthday)
+            userList[0].birthday = sqlDate
             return userList
         }
         return null

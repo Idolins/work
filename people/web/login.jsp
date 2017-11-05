@@ -9,6 +9,12 @@
 <html>
 <head>
     <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
     <style>
         .form-center {
             width: 500px;
@@ -63,6 +69,6 @@
         </form>
     </div>
 </div>
-
+<jsp:include page="common/coryright.jsp"/>
 </body>
 </html>

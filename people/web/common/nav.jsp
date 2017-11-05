@@ -29,8 +29,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">主页<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="index.jsp">主页<span class="sr-only">(current)</span></a></li>
+                <li><a href="document.jsp">资料</a></li>
             </ul>
             <form class="navbar-form navbar-left">
 
@@ -42,10 +42,7 @@
                 </div>
             </form>
 
-            <%--开始计时 2017年11月5日 11点05分 11点29分 我好像知道了错误--%>
-
             <c:set var="user" value="${sessionScope.user}"/>
-
 
             <c:if test="${user==null}">
                 <ul class="nav navbar-nav navbar-right">
@@ -62,18 +59,6 @@
                     </li>
                 </ul>
             </c:if>
-            <%--<s:property value="user.nickname"/>--%>
-            <%--<s:set var="session" value="${sessionScope.user}"/>--%>
-            <%--<s:property value="#session"/>--%>
-
-            <%--<s:if test="user.email==null">--%>
-            <%----%>
-            <%--</s:if>--%>
-            <%--<s:else>--%>
-            <%----%>
-            <%--</s:else>--%>
-
-
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

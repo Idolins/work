@@ -10,11 +10,11 @@
 <head>
     <title>注册</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-        .myjumbotron {
-            color: #1b6d85;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 <jsp:include page="common/nav.jsp"/>
@@ -166,6 +166,6 @@
         </div>
     </div>
 </div>
-
+<jsp:include page="common/coryright.jsp"/>
 </body>
 </html>
