@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${sessionScope.user.nickname}的个人信息</title>
+    <title>${sessionScope.userInfo.nickname}的个人信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
              class="img-circle center-block">
     </div>
     <div class="col-md-9">
-        <h2>${sessionScope.user.nickname}</h2>
+        <h2>${sessionScope.userInfo.nickname}</h2>
         <small><span class="glyphicon glyphicon-pencil"></span> <a href="">修改资料</a></small>
     </div>
 </div>
@@ -51,11 +51,11 @@
         <table class="table table-hover">
             <tr>
                 <td>昵称</td>
-                <td>${sessionScope.user.nickname}</td>
+                <td>${sessionScope.userInfo.nickname}</td>
             </tr>
             <tr>
                 <td>邮箱</td>
-                <td>${sessionScope.user.email}</td>
+                <td>${sessionScope.userInfo.email}</td>
             </tr>
         </table>
 
@@ -63,19 +63,19 @@
         <table class="table table-hover">
             <tr>
                 <td>姓名</td>
-                <td>${sessionScope.user.username}</td>
+                <td>${sessionScope.userInfo.username}</td>
             </tr>
             <tr>
                 <td>年龄</td>
-                <td>${sessionScope.user.age}</td>
+                <td>${sessionScope.userInfo.age}</td>
             </tr>
             <tr>
                 <td>性别</td>
-                <td>${sessionScope.user.sex}</td>
+                <td>${sessionScope.userInfo.sex}</td>
             </tr>
             <tr>
                 <td>生日</td>
-                <td>${sessionScope.user.birthday}</td>
+                <td>${sessionScope.userInfo.birthday}</td>
             </tr>
         </table>
         <h2>联系方式</h2>
@@ -86,10 +86,11 @@
             </tr>
             <tr>
                 <td>地址</td>
-                <td>${sessionScope.user.province}-${sessionScope.user.city}-${sessionScope.user.area}</td>
+                <td>${sessionScope.userInfo.province}-${sessionScope.userInfo.city}-${sessionScope.userInfo.area}</td>
             </tr>
         </table>
     </div>
+
 </div>
 
 

@@ -20,4 +20,9 @@ interface FileDao {
     fun downLoadFile(id: Serializable): Files
 
     fun getAllFiles(): MutableList<Files>
+
+    fun deleteFile(id: Serializable)
+
+    fun getFile(id: Serializable): Files
+
 }

@@ -28,4 +28,5 @@ class Files {
     lateinit var name: String
     lateinit var path: String
     lateinit var icon: String
+    lateinit var contentType: String
 }

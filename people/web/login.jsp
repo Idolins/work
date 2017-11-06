@@ -20,14 +20,16 @@
             width: 500px;
             height: auto;
         }
+
+
     </style>
 </head>
 <body>
 <jsp:include page="common/nav.jsp"/>
 
-<div class="container">
+<div class="container ">
 
-    <div class="form-center center-block">
+    <div class="form-center center-block ">
         <h3 class="text-center">登陆</h3>
         <form action="userLogin.action" method="post" class="form-group center-block">
             <table class="table ">
@@ -53,12 +55,12 @@
                 <tr class="form-group">
                     <td class="text-center">
                         <div>
-                            ${requestScope.loginError}
+                            ${requestScope.loginError} <s:actionerror/>
                         </div>
                     </td>
                 </tr>
                 <tr class="form-group">
-                    <td >
+                    <td>
                         <div>
                             <button type="submit" class="btn btn-success btn-block">登陆</button>
                         </div>

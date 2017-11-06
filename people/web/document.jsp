@@ -38,7 +38,11 @@
             <td><c:out value="${file.fid}"/></td>
             <td><img src="${file.icon}" alt="无法加载" width="20px" height="20px">
                 <c:out value="${file.name}"/></td>
-            <td>下载</td>
+            <td>
+                <a href="download.action?inputPath=${file.path}&contentType=${file.contentType}&downFileName=${file.name}">
+                下载</a>
+                <a href="deletefile?fileId=${file.fid}">删除</a>
+            </td>
         </tr>
         <script type="text/javascript">
 

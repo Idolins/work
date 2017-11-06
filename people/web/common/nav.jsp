@@ -42,18 +42,18 @@
                 </div>
             </form>
 
-            <c:set var="nickname" value="${sessionScope.user.nickname}"/>
+            <c:set var="userInfo" value="${sessionScope.userInfo}"/>
 
-            <c:if test="${nickname==null}">
+            <c:if test="${userInfo==null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.jsp">登陆</a></li>
                     <li><a href="register.jsp">注册</a></li>
                 </ul>
             </c:if>
 
-            <c:if test="${nickname!=null}">
+            <c:if test="${userInfo!=null}">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userInfo.jsp"> ${nickname}</a></li>
+                    <li><a href="userInfo.jsp"> ${userInfo.nickname}</a></li>
                     <li class="center-block ">
                         <img class="img-circle" src="pic/testpic.jpeg" width="50px" height="50px">
                     </li>

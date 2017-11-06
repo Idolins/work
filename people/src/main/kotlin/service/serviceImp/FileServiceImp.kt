@@ -38,9 +38,10 @@ class FileServiceImp : FileService {
             val file = File("$realPath/$name")
             val path = file.canonicalPath
             val saveFile: Files = Files()
-            saveFile.path = path
+            saveFile.path = path.replace("\\", "/")
             saveFile.icon = icon
             saveFile.name = fileName[i]
+            saveFile.contentType = contentType[i]
             fileDao.uploadFile(saveFile)
             files[i].copyTo(file, true)
         }
@@ -48,7 +49,7 @@ class FileServiceImp : FileService {
 
     override fun downLoadFile(id: Int): Files {
         fileDao = FileDaoImp()
-        val file=fileDao.downLoadFile(id as Serializable)
+        val file = fileDao.downLoadFile(id as Serializable)
         return file
     }
 
@@ -57,4 +58,23 @@ class FileServiceImp : FileService {
         fileDao = FileDaoImp()
         return fileDao.getAllFiles()
     }
+
+
+    override fun deleteFile(id: Int): String {
+        fileDao = FileDaoImp()
+        val fileInDatabase = fileDao.getFile(id)
+        val f = File(fileInDatabase.path)
+        var flag = false
+        if (f.isFile && f.exists()) {
+            f.delete()
+            flag = true
+        }
+        return if (flag) {
+            fileDao.deleteFile(id)
+            "success"
+        } else {
+            "error"
+        }
+    }
+
 }

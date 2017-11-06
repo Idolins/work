@@ -12,6 +12,8 @@ object IconUtil {
             "jpg" -> "img.png"
             "ppt" -> "ppt.png"
             "pptx" -> "ppt.png"
+            "xls" -> "excle.png"
+            "xlsx" -> "excle.png"
             "doc" -> "word.png"
             "docx" -> "word.png"
             "md" -> "markdown.png"

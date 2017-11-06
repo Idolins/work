@@ -36,7 +36,7 @@ class UserAction : ActionSupport(), ModelDriven<User> {
         val user = bool?.get(0)
         println("user is ${user?.nickname}")
         if (user != null) {
-            ActionContext.getContext().session.put("user", user)
+            ActionContext.getContext().session.put("userInfo", user)
             result = Action.SUCCESS
         } else {
             ActionContext.getContext().put("loginError", "邮箱或密码错误")

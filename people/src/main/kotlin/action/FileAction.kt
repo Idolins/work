@@ -20,13 +20,13 @@ import java.io.File
  */
 class FileAction : ActionSupport() {
 
+     var fileId: Int=0
     lateinit var upload: Array<File>
     lateinit var uploadContentType: Array<String>
     lateinit var uploadFileName: Array<String>
     lateinit var fileService: FileService
 
-    override fun execute(): String {
-
+    fun uploadFile(): String {
         fileService = FileServiceImp()
         fileService.uploadFile(upload, uploadContentType, uploadFileName)
         return Action.SUCCESS
@@ -38,5 +38,10 @@ class FileAction : ActionSupport() {
         fileService.getAllFiles().map { println(it) }
         ActionContext.getContext().put("files", fileService.getAllFiles())
         return Action.SUCCESS
+    }
+
+    fun deleteFile(): String {
+        fileService = FileServiceImp()
+        return fileService.deleteFile(fileId)
     }
 }

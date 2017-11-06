@@ -48,10 +48,36 @@ class FileDaoImp : FileDao {
         val configuration = Configuration().configure()
         val sessionFactory = configuration.buildSessionFactory()
         val session = sessionFactory.openSession()
+        val transaction = session.beginTransaction()
         @Language("HQL")
         val hql = "from Files"
         val query = session.createQuery(hql)
         val fileLsit = query.list()
+        transaction.commit()
+        session.close()
         return fileLsit as MutableList<Files>
+    }
+
+    override fun deleteFile(id: Serializable) {
+        val configuration = Configuration().configure()
+        val sessionFactory = configuration.buildSessionFactory()
+        val session = sessionFactory.openSession()
+        val transaction = session.beginTransaction()
+        val file = session.get(Files::class.java, id)
+        session.delete(file)
+        transaction.commit()
+        session.close()
+    }
+
+
+    override fun getFile(id: Serializable): Files {
+        val configuration = Configuration().configure()
+        val sessionFactory = configuration.buildSessionFactory()
+        val session = sessionFactory.openSession()
+        val transaction = session.beginTransaction()
+        val file = session.get(Files::class.java, id)
+        transaction.commit()
+        session.close()
+        return file as Files
     }
 }

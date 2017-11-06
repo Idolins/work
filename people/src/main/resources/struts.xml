@@ -3,9 +3,20 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+
+
     <package name="default" namespace="/" extends="struts-default">
+
+        <!--自定义拦截器-->
+        <interceptors>
+            <interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
+        </interceptors>
+
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
+
         <action name="userRegister" method="register" class="action.UserAction">
-            <result name="login">input.jsp</result>
             <result name="input">register.jsp</result>
             <result name="error">register.jsp</result>
         </action>
@@ -16,12 +27,32 @@
         </action>
 
         <!--file upload-->
-        <action name="uploadfiles" class="action.FileAction">
+        <action name="uploadfiles" class="action.FileAction" method="uploadFile">
             <result name="input">uploadFile.jsp</result>
-            <result name="success">document.jsp</result>
+            <result name="success" type="chain">getfiles</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
         <action name="getfiles" class="action.FileAction" method="showAllFiles">
             <result name="success">document.jsp</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
+        <action name="download" class="action.DownLoadFile">
+            <result type="stream">
+                <param name="inputName">targetFile</param>
+                <param name="contentType">${contentType}</param>
+                <param name="contentDisposition">attachment;filename=${downFileName}</param>
+            </result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <action name="deletefile" method="deleteFile" class="action.FileAction">
+            <result name="success" type="chain">getfiles</result>
+            <result name="error">getfiles</result>
+            <interceptor-ref name="loginInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
     </package>
 </struts>

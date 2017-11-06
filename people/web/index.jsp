@@ -21,11 +21,18 @@
             src="http://webapi.amap.com/maps?v=1.4.0&key=58106c1c54be5f020791bfa63fc05b3e&plugin=AMap.CitySearch"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script type="text/javascript" src="common/lbs.js"></script>
-<style>
-    .nav-self{
-        margin-top: 200px;
-    }
-</style>
+    <style>
+        .nav-self {
+            margin-top: 200px;
+        }
+
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 <%--导航栏--%>
