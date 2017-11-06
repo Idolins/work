@@ -15,6 +15,7 @@ import org.apache.struts2.ServletActionContext
 import service.FileService
 import util.IconUtil
 import java.io.File
+import java.io.Serializable
 import java.util.*
 
 
@@ -25,7 +26,7 @@ class FileServiceImp : FileService {
 
 
     lateinit var file: File
-    lateinit var fileDao: FileDao
+    private lateinit var fileDao: FileDao
     override fun uploadFile(files: Array<File>, contentType: Array<String>, fileName: Array<String>) {
         fileDao = FileDaoImp()
 
@@ -45,8 +46,10 @@ class FileServiceImp : FileService {
         }
     }
 
-    override fun downLoadFile() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun downLoadFile(id: Int): Files {
+        fileDao = FileDaoImp()
+        val file=fileDao.downLoadFile(id as Serializable)
+        return file
     }
 
 

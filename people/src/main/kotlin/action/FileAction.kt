@@ -18,7 +18,7 @@ import java.io.File
 /**
  * Created by young on 2017/11/5.
  */
-class UploadAction : ActionSupport() {
+class FileAction : ActionSupport() {
 
     lateinit var upload: Array<File>
     lateinit var uploadContentType: Array<String>

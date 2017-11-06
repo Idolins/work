@@ -17,7 +17,7 @@ import java.io.File
 interface FileService {
     fun uploadFile(files: Array<File>, contentType: Array<String>, fileName: Array<String>)
 
-    fun downLoadFile()
+    fun downLoadFile(id:Int):Files
 
     fun getAllFiles(): MutableList<Files>
 }

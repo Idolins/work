@@ -16,11 +16,11 @@
         </action>
 
         <!--file upload-->
-        <action name="uploadfiles" class="action.UploadAction">
+        <action name="uploadfiles" class="action.FileAction">
             <result name="input">uploadFile.jsp</result>
             <result name="success">document.jsp</result>
         </action>
-        <action name="getfiles" class="action.UploadAction" method="showAllFiles">
+        <action name="getfiles" class="action.FileAction" method="showAllFiles">
             <result name="success">document.jsp</result>
         </action>
     </package>

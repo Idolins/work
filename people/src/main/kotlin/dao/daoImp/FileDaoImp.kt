@@ -12,7 +12,7 @@ import dao.FileDao
 import domain.Files
 import org.hibernate.cfg.Configuration
 import org.intellij.lang.annotations.Language
-import util.HBNSessionFactory
+import java.io.Serializable
 
 /**
  * Created by young on 2017/11/5.
@@ -33,8 +33,15 @@ class FileDaoImp : FileDao {
     }
 
 
-    override fun downLoadFile() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun downLoadFile(id: Serializable): Files {
+        val configuration = Configuration().configure()
+        val sessionFactory = configuration.buildSessionFactory()
+        val session = sessionFactory.openSession()
+        val transaction = session.beginTransaction()
+        val file: Files = session.get(Files::class.java, id) as Files
+        transaction.commit()
+        session.close()
+        return file
     }
 
     override fun getAllFiles(): MutableList<Files> {

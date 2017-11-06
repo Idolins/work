@@ -9,14 +9,15 @@
 package dao
 
 import domain.Files
+import java.io.Serializable
 
 /**
  * Created by young on 2017/11/5.
  */
 interface FileDao {
-    fun uploadFile(file:Files):Int
+    fun uploadFile(file: Files): Int
 
-    fun downLoadFile()
+    fun downLoadFile(id: Serializable): Files
 
-    fun getAllFiles():MutableList<Files>
+    fun getAllFiles(): MutableList<Files>
 }

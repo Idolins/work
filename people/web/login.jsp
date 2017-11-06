@@ -69,6 +69,6 @@
         </form>
     </div>
 </div>
-<jsp:include page="common/coryright.jsp"/>
+<jsp:include page="common/copyright.jsp"/>
 </body>
 </html>

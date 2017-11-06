@@ -21,7 +21,11 @@
             src="http://webapi.amap.com/maps?v=1.4.0&key=58106c1c54be5f020791bfa63fc05b3e&plugin=AMap.CitySearch"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script type="text/javascript" src="common/lbs.js"></script>
-
+<style>
+    .nav-self{
+        margin-top: 200px;
+    }
+</style>
 </head>
 <body>
 <%--导航栏--%>
@@ -59,10 +63,9 @@
                         greet = "吃晚餐了吗？🍔"
                     }
                     if (20 <= hours && hours <= 24) {
-                        greet = "美好的夜生活"
+                        greet = "美好的夜生活🥂"
                     }
                     document.getElementById("Greeting").innerHTML = greet
-
                 </script>
             </h2>
             <div id="show"></div>
@@ -100,7 +103,8 @@
     </div>
 </div>
 
+
 <%--版权--%>
-<jsp:include page="common/coryright.jsp"/>
+<jsp:include page="common/copyright.jsp"/>
 </body>
 </html>
