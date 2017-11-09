@@ -54,5 +54,31 @@
             <interceptor-ref name="defaultStack"/>
         </action>
 
+        <!--test-->
+        <action name="downloadt" class="action.DownloadAction">
+            <result name="success" type="stream">
+                <!-- 下载文件类型定义 -->
+                <param name="contentType">application/octet-stream</param>
+                <!-- 下载文件输出流定义 -->
+                <param name="inputName">inputStream</param>　　　　　　　　　　　　　　　　　　<!-- 下载文件处理方式 --> 　　　　　　　　　　　　　　　　
+                <param name="contentDisposition">attachment;filename=${fileName}</param>
+                <!-- 下载文件的缓冲大小 -->
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+
+        <action name="downloadMultiFile" class="action.MultiFileDownloadAction" method="downloadMultiFile">
+            <result type="redirectAction">
+                <param name="actionName">downloadt</param>
+                <!--附件的完整路径  -->
+                <param name="fileName">attachment;filename=${fileName}</param>
+            </result>
+        </action>
+
+
+        <!--定位签到-->
+        <action name="location" class="action.SignAction" method="execute">
+        </action>
+
     </package>
 </struts>

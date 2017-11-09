@@ -3,10 +3,7 @@ package domain
 import org.hibernate.annotations.GenericGenerator
 import java.io.Serializable
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 /**
  * Created by young on 2017/10/24.
@@ -34,6 +31,8 @@ class User : Serializable {
     lateinit var area: String
     lateinit var email: String
 
+    @OneToMany(targetEntity = SignInfo::class)
+    lateinit var signInfoSet: Set<SignInfo>
 
 }
 

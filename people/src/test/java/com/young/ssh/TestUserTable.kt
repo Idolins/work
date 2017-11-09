@@ -1,9 +1,9 @@
 package com.young.ssh
 
 import org.hibernate.cfg.Configuration
-import org.hibernate.service.ServiceRegistryBuilder
 import org.hibernate.tool.hbm2ddl.SchemaExport
 import org.junit.After
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 

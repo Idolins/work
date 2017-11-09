@@ -18,6 +18,6 @@
         <!--注解开发-->
         <mapping class="domain.User"/>
         <mapping class="domain.Files"/>
-
+        <mapping class="domain.SignInfo"/>
     </session-factory>
 </hibernate-configuration>

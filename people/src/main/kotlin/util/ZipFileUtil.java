@@ -9,9 +9,9 @@ import org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream;
 import java.io.*;
 
 /**
- * Created by young on 2017/11/6.
+ * Created by young on 2017/11/7.
  */
-public class ZipUtil {
+public class ZipFileUtil {
     /**
      * 把文件压缩成zip格式
      *
@@ -34,12 +34,12 @@ public class ZipUtil {
                         if (file != null) {
                             ZipArchiveEntry zipArchiveEntry = new ZipArchiveEntry(file, file.getName());
                             zaos.putArchiveEntry(zipArchiveEntry);
-                            InputStream inputStream = null;
+                            InputStream is = null;
                             try {
-                                inputStream = new BufferedInputStream(new FileInputStream(file));
+                                is = new BufferedInputStream(new FileInputStream(file));
                                 byte[] buffer = new byte[1024 * 5];
                                 int len = -1;
-                                while ((len = inputStream.read(buffer)) != -1) {
+                                while ((len = is.read(buffer)) != -1) {
                                     //把缓冲区的字节写入到ZipArchiveEntry
                                     zaos.write(buffer, 0, len);
                                 }
@@ -48,9 +48,10 @@ public class ZipUtil {
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             } finally {
-                                if (inputStream != null) {
-                                    inputStream.close();
+                                if (is != null) {
+                                    is.close();
                                 }
+
                             }
 
                         }
@@ -84,12 +85,12 @@ public class ZipUtil {
         if (isEndsWithZip(zipFilePath)) {
             File file = new File(zipFilePath);
             if (file.exists()) {
-                InputStream inputStream = null;
+                InputStream is = null;
                 //can read Zip archives
                 ZipArchiveInputStream zais = null;
                 try {
-                    inputStream = new FileInputStream(file);
-                    zais = new ZipArchiveInputStream(inputStream);
+                    is = new FileInputStream(file);
+                    zais = new ZipArchiveInputStream(is);
                     ArchiveEntry archiveEntry = null;
                     //把zip包中的每个文件读取出来
                     //然后把文件写到指定的文件夹
@@ -123,8 +124,8 @@ public class ZipUtil {
                         if (zais != null) {
                             zais.close();
                         }
-                        if (inputStream != null) {
-                            inputStream.close();
+                        if (is != null) {
+                            is.close();
                         }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
@@ -149,6 +150,4 @@ public class ZipUtil {
         }
         return flag;
     }
-
 }
-

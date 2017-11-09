@@ -29,7 +29,7 @@ class DownLoadFile : ActionSupport() {
 
     fun getTargetFile(): InputStream {
         println("input path is $inputPath and contentType is $contentType and down is $downFileName")
-        var inputStream: InputStream? = null
+        val inputStream: InputStream?
         inputStream = FileInputStream(inputPath)
         return inputStream
     }

@@ -2,10 +2,7 @@ package dao.daoImp
 
 import dao.UserDao
 import domain.User
-import org.hibernate.Transaction
 import org.hibernate.cfg.Configuration
-import util.JDBCUtil
-import java.sql.PreparedStatement
 
 /**
  * Created by young on 2017/10/27.

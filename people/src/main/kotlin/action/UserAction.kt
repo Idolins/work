@@ -29,12 +29,13 @@ class UserAction : ActionSupport(), ModelDriven<User> {
 //    }
 
 
+
     fun login(): String {
-        userService = UserServiceImp()
-        val bool = userService.login(user)
-        var result = Action.ERROR
+        userService = UserServiceImp()  // UserService userServicec = new UserServiceImp()
+        val bool = userService.login(user)  //val  final
+        var result:String = Action.ERROR  //String result = ERROR
         val user = bool?.get(0)
-        println("user is ${user?.nickname}")
+        println("user is ${user?.nickname}") // System.out.println("user is" + user.getNickname())
         if (user != null) {
             ActionContext.getContext().session.put("userInfo", user)
             result = Action.SUCCESS
